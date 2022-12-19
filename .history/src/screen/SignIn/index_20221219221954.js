@@ -15,9 +15,11 @@ import { imgBackground, iconFacebook, iconGoogle } from '../../assets/images';
 import { isValidateEmail, isValidatePassword } from '../../utilies/validation';
 
 import { styles } from './style';
-import Home from '../Home';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SignIn() {
+    const navigation = useNavigation();
+
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 

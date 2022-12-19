@@ -9,6 +9,9 @@
 import React from 'react';
 import type { Node } from 'react';
 
+import { enableScreens } from 'react-native-screens';
+enableScreens(false);
+
 import SignIn from './src/screen/SignIn';
 import { styles } from './App.style';
 import MainNavigator from './src/navigations';

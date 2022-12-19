@@ -4,9 +4,6 @@
 // import SignIn from '../screen/SignIn';
 // import Home from '../screen/Home';
 
-// import { enableScreens } from 'react-native-screens';
-// enableScreens(true);
-
 // const Stack = createNativeStackNavigator();
 // export default function MainNavigator() {
 //     return (

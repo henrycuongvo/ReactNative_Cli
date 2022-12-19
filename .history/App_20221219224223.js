@@ -9,6 +9,9 @@
 import React from 'react';
 import type { Node } from 'react';
 
+import { enableScreens } from 'react-native-screens';
+enableScreens(true);
+
 import SignIn from './src/screen/SignIn';
 import { styles } from './App.style';
 import MainNavigator from './src/navigations';
@@ -17,7 +20,7 @@ import MainNavigator from './src/navigations';
  * LTI update could not be added via codemod */
 
 const App: () => Node = () => {
-    return <SignIn />;
+    return <MainNavigator />;
 };
 
 export default App;

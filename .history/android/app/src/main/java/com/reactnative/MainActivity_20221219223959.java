@@ -12,9 +12,9 @@ public class MainActivity extends ReactActivity {
    * rendering of the component.
    */
   @Override
-  protected String getMainComponentName() {
-    return "ReactNative";
-  }
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+}
 
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. There the RootView is created and
@@ -46,7 +46,7 @@ public class MainActivity extends ReactActivity {
       return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
     }
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+protected void onCreate(Bundle savedInstanceState) {
   super.onCreate(null);
 }
   }

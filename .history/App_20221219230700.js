@@ -17,7 +17,7 @@ import MainNavigator from './src/navigations';
  * LTI update could not be added via codemod */
 
 const App: () => Node = () => {
-    return <SignIn />;
+    return <MainNavigator />;
 };
 
 export default App;
