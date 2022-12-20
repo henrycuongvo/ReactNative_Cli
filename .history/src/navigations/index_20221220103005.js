@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import Home from '../screen/Home';
 import { store } from '../../store';
 import SignIn from '../screen/SignIn';
-import Orders from '../screen/Orders';
 enableScreens(true);
 
 const Stack = createNativeStackNavigator();
@@ -23,7 +22,6 @@ function MainNavigator() {
                         component={SignIn}
                     />
                     <Stack.Screen name="Home" component={Home} />
-                    <Stack.Screen name="Orders" component={Orders} />
                 </Stack.Navigator>
             </NavigationContainer>
         </Provider>

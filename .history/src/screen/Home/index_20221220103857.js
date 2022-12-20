@@ -14,7 +14,6 @@ import {
     decrement,
     increment,
 } from '../../store/redux/reducers/burger.reducer';
-import { useNavigation } from '@react-navigation/native';
 import { imgBuger } from '../../assets/images';
 import { styles } from './style';
 export default function Home() {
@@ -23,7 +22,7 @@ export default function Home() {
     console.log(getCart);
 
     const dispatch = useDispatch();
-    const nagigation = useNavigation();
+    // const nagigation = useNavigation();
     const [salad, setSalad] = useState(0);
     const [bacon, setBacon] = useState(0);
     const [cheese, setCheese] = useState(0);
@@ -78,23 +77,23 @@ export default function Home() {
                                 <View style={styles.buttonCount}>
                                     <Text
                                         style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(decrement('bacon'))
-                                        }
-                                        disabled={(getCart.salad = 0)}
+                                        // onPress={() =>
+                                        //     dispatch(decrement('bacon'))
+                                        // }
+                                        // disabled={(getCart.salad = 0)}
                                     >
                                         -
                                     </Text>
                                 </View>
-                                <Text style={styles.countShow}>
+                                {/* <Text style={styles.countShow}>
                                     {getCart.bacon}
-                                </Text>
+                                </Text> */}
                                 <View style={styles.buttonCount}>
                                     <Text
                                         style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(increment('bacon'))
-                                        }
+                                        // onPress={() =>
+                                        //     dispatch(increment('bacon'))
+                                        // }
                                     >
                                         +
                                     </Text>
@@ -108,22 +107,22 @@ export default function Home() {
                                 <View style={styles.buttonCount}>
                                     <Text
                                         style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(decrement('cheese'))
-                                        }
+                                        // onPress={() =>
+                                        //     dispatch(decrement('cheese'))
+                                        // }
                                     >
                                         -
                                     </Text>
                                 </View>
-                                <Text style={styles.countShow}>
+                                {/* <Text style={styles.countShow}>
                                     {getCart.cheese}
-                                </Text>
+                                </Text> */}
                                 <View style={styles.buttonCount}>
                                     <Text
                                         style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(increment('cheese'))
-                                        }
+                                        // onPress={() =>
+                                        //     dispatch(increment('cheese'))
+                                        // }
                                     >
                                         +
                                     </Text>
@@ -137,22 +136,22 @@ export default function Home() {
                                 <View style={styles.buttonCount}>
                                     <Text
                                         style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(decrement('meat'))
-                                        }
+                                        // onPress={() =>
+                                        //     dispatch(decrement('meat'))
+                                        // }
                                     >
                                         -
                                     </Text>
                                 </View>
-                                <Text style={styles.countShow}>
+                                {/* <Text style={styles.countShow}>
                                     {getCart.meat}
-                                </Text>
+                                </Text> */}
                                 <View style={styles.buttonCount}>
                                     <Text
                                         style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(increment('meat'))
-                                        }
+                                        // onPress={() =>
+                                        //     dispatch(increment('meat'))
+                                        // }
                                     >
                                         +
                                     </Text>
@@ -165,7 +164,7 @@ export default function Home() {
                 {/* Checkout Button */}
                 <View style={styles.buttonCheckout}>
                     <Button
-                        onPress={() => nagigation.navigate('Orders')}
+                        // onPress={() => nagigation.navigate('Order')}
                         title="Check out"
                     />
                 </View>
