@@ -22,6 +22,7 @@ import StatusBar from '../../components/StatusBar';
 export default function Home() {
     //Get Data from store
     const getCart = useSelector((state) => state.burger.cart);
+    console.log(getCart);
 
     const dispatch = useDispatch();
     const nagigation = useNavigation();

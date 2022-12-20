@@ -4,7 +4,7 @@ import { StyleSheet, StatusBar } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#FEFCF3',
     },
     scrollView: {
         marginHorizontal: 10,
@@ -12,8 +12,8 @@ export const styles = StyleSheet.create({
     },
     table: {
         width: '100%',
-        backgroundColor: '#BAD7E9',
-        borderColor: '#333',
+        backgroundColor: 'grey',
+        borderColor: '#BAD7E9',
         borderWidth: 1,
         borderRadius: 5,
         paddingHorizontal: 10,

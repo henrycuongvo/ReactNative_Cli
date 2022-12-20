@@ -6,11 +6,11 @@ export default function Orders() {
         <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.table}>
-                    <View style={styles.ingredients}>
+                    <View>
                         <Text>Salad</Text>
                         <Text> 1</Text>
                     </View>
-                    <View style={styles.price}>
+                    <View>
                         <Text>Price </Text>
                         <Text> $1</Text>
                     </View>

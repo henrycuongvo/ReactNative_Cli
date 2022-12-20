@@ -18,10 +18,10 @@ import { useNavigation } from '@react-navigation/native';
 import { imgBuger } from '../../assets/images';
 import { styles } from './style';
 import { $CombinedState } from '@reduxjs/toolkit';
-import StatusBar from '../../components/StatusBar';
 export default function Home() {
     //Get Data from store
     const getCart = useSelector((state) => state.burger.cart);
+    console.log(getCart);
 
     const dispatch = useDispatch();
     const nagigation = useNavigation();
@@ -32,7 +32,6 @@ export default function Home() {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
-                <StatusBar title="Your order" />
                 <View style={styles.imgBugerWrapper}>
                     <Image
                         source={imgBuger}
@@ -165,12 +164,12 @@ export default function Home() {
                     {/* <Text> {getTotalPrice}</Text> */}
                 </View>
                 {/* Checkout Button */}
-                <View style={styles.buttonCheckout}>
+                <TouchableOpacity style={styles.buttonCheckout}>
                     <Button
                         onPress={() => nagigation.navigate('Orders')}
                         title="Check out"
                     />
-                </View>
+                </TouchableOpacity>
             </ScrollView>
         </SafeAreaView>
     );

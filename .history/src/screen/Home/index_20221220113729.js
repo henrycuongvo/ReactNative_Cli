@@ -22,6 +22,7 @@ import StatusBar from '../../components/StatusBar';
 export default function Home() {
     //Get Data from store
     const getCart = useSelector((state) => state.burger.cart);
+    console.log(getCart);
 
     const dispatch = useDispatch();
     const nagigation = useNavigation();
@@ -32,7 +33,7 @@ export default function Home() {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
-                <StatusBar title="Your order" />
+                <StatusBar title="Home" />
                 <View style={styles.imgBugerWrapper}>
                     <Image
                         source={imgBuger}

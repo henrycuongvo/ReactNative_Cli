@@ -1,0 +1,12 @@
+import React from 'react';
+import { ScrollView, SafeArrayView, Text } from 'react-native';
+
+export default function Orders() {
+    return (
+        <ScrollView>
+            <SafeArrayView>
+                <Text> Orders</Text>
+            </SafeArrayView>
+        </ScrollView>
+    );
+}

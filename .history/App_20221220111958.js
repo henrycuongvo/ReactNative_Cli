@@ -20,7 +20,7 @@ import StatusBar from './src/components/StatusBar';
  * LTI update could not be added via codemod */
 
 const App: () => Node = () => {
-    return <MainNavigator />;
+    return <StatusBar />;
 };
 
 export default App;

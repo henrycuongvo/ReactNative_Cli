@@ -4,7 +4,8 @@ import { StyleSheet, StatusBar } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: StatusBar.currentHeight,
+        // paddingTop: StatusBar.currentHeight,
+        marginTop: 30,
     },
     scrollView: {
         marginHorizontal: 20,

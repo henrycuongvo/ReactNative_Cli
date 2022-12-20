@@ -4,7 +4,7 @@ import { StyleSheet, StatusBar } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#FAF8F1',
     },
     scrollView: {
         marginHorizontal: 10,
@@ -12,19 +12,9 @@ export const styles = StyleSheet.create({
     },
     table: {
         width: '100%',
-        backgroundColor: '#BAD7E9',
+        backgroundColor: 'grey',
         borderColor: '#333',
         borderWidth: 1,
-        borderRadius: 5,
         paddingHorizontal: 10,
-    },
-    ingredients: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    price: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: 30,
     },
 });

@@ -3,16 +3,16 @@ import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { styles } from './style';
 export default function Orders() {
     return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scrollView}>
+        <SafeAreaView style={styles.contaner}>
+            <ScrollView>
                 <View style={styles.table}>
-                    <View style={styles.ingredients}>
+                    <View>
                         <Text>Salad</Text>
                         <Text> 1</Text>
                     </View>
-                    <View style={styles.price}>
+                    <View>
                         <Text>Price </Text>
-                        <Text> $1</Text>
+                        <Text> 1</Text>
                     </View>
                 </View>
             </ScrollView>
