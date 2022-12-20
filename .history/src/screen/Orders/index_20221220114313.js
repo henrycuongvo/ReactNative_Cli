@@ -5,8 +5,8 @@ import { styles } from './style';
 export default function Orders() {
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar title="Orders" />
             <ScrollView style={styles.scrollView}>
+                <StatusBar title="Orders" />
                 <View style={styles.table}>
                     <View style={styles.ingredients}>
                         <Text>Salad</Text>
