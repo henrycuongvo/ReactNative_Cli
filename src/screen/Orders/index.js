@@ -3,6 +3,7 @@ import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import StatusBar from '../../components/StatusBar';
 import { styles } from './style';
+
 export default function Orders() {
     const getPrice = useSelector((state) => state.burger.totalPrice);
     return (
