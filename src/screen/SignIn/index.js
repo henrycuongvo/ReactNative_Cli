@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import { imgBackground, iconFacebook, iconGoogle } from '../../assets/images';
-import { isValidateEmail, isValidatePassword } from '../../utilies/validation';
+import { isValidateEmail, isValidatePassword } from '../../utilies/Validation';
 
 import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
@@ -25,10 +25,20 @@ export default function SignIn() {
     const [errorEmail, setErrorEmail] = useState();
     const [showPassword, setShowPassword] = useState(false);
     const buttonSignIn = () => {
-        if (isValidateEmail === true && isValidatePassword === true) {
-            alert('sign up success');
+        if (email === undefined) {
+            Alert.alert('', 'Please enter email');
+        } else if (isValidateEmail(email) === false) {
+            Alert.alert('', 'Email not correct format');
+        } else if (password === undefined) {
+            Alert.alert('', 'Please enter password');
+        } else if (
+            isValidateEmail(email) === true &&
+            isValidatePassword(password) === true
+        ) {
+            navigation.navigate('Home');
+            Alert.alert('Sign In Success');
         } else {
-            Alert.alert('Invalid email', 'Please input valid email', [
+            Alert.alert('', 'Email or Password not correct', [
                 {
                     text: 'OK',
                     onPress: () => console.log('Cancel Pressed'),
@@ -51,16 +61,18 @@ export default function SignIn() {
                         <TextInput
                             // onSubmitEditing={Keyboard.dismiss}
                             placeholder="Email"
+                            onChangeText={(text) => setEmail(text)}
+                            value={email}
                         />
                     </View>
-                    <Text style={{ color: 'red', fontSize: 12 }}>
-                        {' '}
-                        {errorEmail}
-                    </Text>
+                    {/* <Text style={{ color: 'red', fontSize: 12 }}> {errorEmail}</Text> */}
                     <View style={styles.password}>
                         <TextInput
+                            style={styles.textInput}
                             placeholder="Password"
                             secureTextEntry={showPassword ? false : true}
+                            onChangeText={(text) => setPassword(text)}
+                            value={password}
                         />
                         <Text
                             onPress={() =>
@@ -78,6 +90,7 @@ export default function SignIn() {
                         style={{
                             color: '#62B6B7',
                             marginTop: 10,
+                            paddingHorizontal: 10,
                         }}
                         onPress={() => {
                             alert('forgot');
@@ -89,7 +102,9 @@ export default function SignIn() {
 
                     <TouchableOpacity
                         onPress={() => {
-                            navigation.navigate('Home');
+                            buttonSignIn();
+                            // navigation.navigate('Home');
+                            // Alert.alert(email, password);
                         }}
                         style={styles.signUpWrapper}
                     >
@@ -104,6 +119,7 @@ export default function SignIn() {
                             <Text
                                 style={{
                                     color: '#62B6B7',
+                                    marginRight: 10,
                                 }}
                             >
                                 Create account

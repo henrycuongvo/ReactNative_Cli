@@ -5,11 +5,13 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: StatusBar.currentHeight,
+        backgroundColor: '#678983',
     },
     scrollView: {
         marginHorizontal: 20,
         flex: 1,
         height: 100,
+        borderRadius: 10,
     },
     statusBar: {
         width: '100%',
@@ -27,6 +29,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         backgroundColor: '#fff',
+        // borderBottomEndRadius: 10,
     },
     table: {
         width: '90%',

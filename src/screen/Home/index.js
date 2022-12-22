@@ -13,17 +13,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     decrement,
     increment,
+    incrementByAmount,
 } from '../../store/redux/reducers/burger.reducer';
 import { useNavigation } from '@react-navigation/native';
 import { imgBuger } from '../../assets/images';
 import { styles } from './style';
 import StatusBar from '../../components/StatusBar';
 export default function Home() {
+    useEffect(() => {
+        dispatch(incrementByAmount());
+    });
     //Get Data from store
     const getCart = useSelector((state) => state.burger.cart);
 
     const dispatch = useDispatch();
     const nagigation = useNavigation();
+
     const [salad, setSalad] = useState(0);
     const [bacon, setBacon] = useState(0);
     const [cheese, setCheese] = useState(0);
@@ -82,7 +87,6 @@ export default function Home() {
                                         onPress={() =>
                                             dispatch(decrement('bacon'))
                                         }
-                                        disabled={(getCart.salad = 0)}
                                     >
                                         -
                                     </Text>

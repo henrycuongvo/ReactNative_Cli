@@ -1,8 +1,10 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { useSelector } from 'react-redux';
 import StatusBar from '../../components/StatusBar';
 import { styles } from './style';
 export default function Orders() {
+    const getPrice = useSelector((state) => state.burger.totalPrice);
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar title="Orders" />
@@ -14,7 +16,7 @@ export default function Orders() {
                     </View>
                     <View style={styles.price}>
                         <Text>Price </Text>
-                        <Text> $1</Text>
+                        <Text> ${getPrice}</Text>
                     </View>
                 </View>
             </ScrollView>
