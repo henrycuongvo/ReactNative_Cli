@@ -17,8 +17,13 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         paddingHorizontal: 10,
+        marginTop: 10,
     },
     ingredients: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+    },
+    ingredientWrapper: {
         flexDirection: 'row',
         justifyContent: 'space-between',
     },

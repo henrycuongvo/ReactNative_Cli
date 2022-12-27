@@ -38,10 +38,11 @@ export const burgerSlice = createSlice({
             }
         },
         incrementByAmount: (state) => {
-            state.totalPrice = state.cart.salad;
-            // state.cart.bacon +
-            // state.cart.cheese +
-            // state.cart.meat;
+            state.totalPrice =
+                state.cart.salad +
+                state.cart.bacon +
+                state.cart.cheese +
+                state.cart.meat;
         },
     },
 });

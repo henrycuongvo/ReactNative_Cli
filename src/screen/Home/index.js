@@ -19,20 +19,34 @@ import { useNavigation } from '@react-navigation/native';
 import { imgBuger } from '../../assets/images';
 import { styles } from './style';
 import StatusBar from '../../components/StatusBar';
-export default function Home() {
-    useEffect(() => {
-        dispatch(incrementByAmount());
-    });
-    //Get Data from store
-    const getCart = useSelector((state) => state.burger.cart);
+import {
+    CREATE_PRODUCT_REQUEST,
+    GET_PRODUCT_LIST_REQUEST,
+} from '../../store/redux/reducers/product.reducer';
 
-    const dispatch = useDispatch();
-    const nagigation = useNavigation();
+export default function Home() {
+    const getCart = useSelector((state) => state.burger.cart);
+    const getPrice = useSelector((state) => state.burger.totalPrice);
 
     const [salad, setSalad] = useState(0);
     const [bacon, setBacon] = useState(0);
     const [cheese, setCheese] = useState(0);
     const [meat, setMeat] = useState(0);
+    useEffect(() => {
+        dispatch(incrementByAmount());
+    });
+
+    useEffect(() => {
+        setSalad(getCart.salad);
+        setBacon(getCart.bacon);
+        setCheese(getCart.cheese);
+        setMeat(getCart.meat);
+    }, [getCart]);
+    //Get Data from store
+
+    const dispatch = useDispatch();
+    const nagigation = useNavigation();
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
@@ -170,7 +184,24 @@ export default function Home() {
                 {/* Checkout Button */}
                 <View style={styles.buttonCheckout}>
                     <Button
-                        onPress={() => nagigation.navigate('Orders')}
+                        onPress={() => {
+                            dispatch(
+                                CREATE_PRODUCT_REQUEST({
+                                    cart: {
+                                        salad: salad,
+                                        bacon: bacon,
+                                        cheese: cheese,
+                                        meat: meat,
+                                        price: getPrice,
+                                    },
+                                    callback: {
+                                        goToList: () =>
+                                            nagigation.navigate('Orders'),
+                                    },
+                                }),
+                            );
+                            dispatch(GET_PRODUCT_LIST_REQUEST());
+                        }}
                         title="Check out"
                     />
                 </View>

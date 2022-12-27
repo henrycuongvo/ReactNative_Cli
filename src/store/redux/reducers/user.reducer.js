@@ -24,7 +24,50 @@ const userReducer = createSlice({
                 },
             };
         },
+        USER_LOGIN_REQUEST: (state) => {
+            return {
+                ...state,
+                loginData: {
+                    ...state.loginData,
+                    loading: false,
+                    error: null,
+                },
+            };
+        },
+        USER_LOGIN_SUCCESS: (state, action) => {
+            const { data } = action.payload;
+            console.log('reducers', data.email);
+            return {
+                ...state,
+                userInfo: {
+                    ...state.userInfo,
+                    loading: false,
+                    data: data,
+                },
+                loginData: {
+                    ...state.loginData,
+                    loading: false,
+                },
+            };
+        },
+        USER_LOGIN_FAIL: (state, action) => {
+            const { error } = action.payload;
+            console.log('Failed');
+            return {
+                ...state,
+                loginData: {
+                    ...state.loginData,
+                    loading: false,
+                    error: error,
+                },
+            };
+        },
     },
 });
-export const { USER_LOGOUT } = userReducer.actions;
+export const {
+    USER_LOGOUT,
+    USER_LOGIN_SUCCESS,
+    USER_LOGIN_FAIL,
+    USER_LOGIN_REQUEST,
+} = userReducer.actions;
 export default userReducer.reducer;

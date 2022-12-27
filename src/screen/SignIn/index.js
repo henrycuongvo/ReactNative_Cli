@@ -10,21 +10,25 @@ import {
     Alert,
     TouchableOpacity,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { imgBackground, iconFacebook, iconGoogle } from '../../assets/images';
 import { isValidateEmail, isValidatePassword } from '../../utilies/Validation';
 
 import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { USER_LOGIN_REQUEST } from '../../store/redux/reducers/user.reducer';
 
 export default function SignIn() {
     const navigation = useNavigation();
+    const dispatch = useDispatch();
+
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
     const [errorEmail, setErrorEmail] = useState();
     const [showPassword, setShowPassword] = useState(false);
-    const buttonSignIn = () => {
+    const handleSignIn = (value) => {
         if (email === undefined) {
             Alert.alert('', 'Please enter email');
         } else if (isValidateEmail(email) === false) {
@@ -35,8 +39,7 @@ export default function SignIn() {
             isValidateEmail(email) === true &&
             isValidatePassword(password) === true
         ) {
-            navigation.navigate('Home');
-            Alert.alert('Sign In Success');
+            // navigation.navigate('Home');
         } else {
             Alert.alert('', 'Email or Password not correct', [
                 {
@@ -101,8 +104,24 @@ export default function SignIn() {
                     {/* Creact SignUp Button */}
 
                     <TouchableOpacity
-                        onPress={() => {
-                            buttonSignIn();
+                        onPress={(value) => {
+                            handleSignIn(value);
+                            dispatch(
+                                USER_LOGIN_REQUEST({
+                                    data: {
+                                        email: email,
+                                        password: password,
+                                        usreId: email,
+                                    },
+                                    callback: {
+                                        // goToDashboard: () => navigate('/login'),
+
+                                        goToHome: () =>
+                                            navigation.navigate('Home'),
+                                    },
+                                }),
+                            );
+
                             // navigation.navigate('Home');
                             // Alert.alert(email, password);
                         }}

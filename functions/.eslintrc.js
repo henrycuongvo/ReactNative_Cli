@@ -1,14 +1,34 @@
 module.exports = {
-  root: true,
-  env: {
-    es6: true,
-    node: true,
-  },
-  extends: [
-    "eslint:recommended",
-    "google",
-  ],
-  rules: {
-    quotes: ["error", "double"],
-  },
+    root: true,
+    env: {
+        es6: true,
+        node: true,
+    },
+    extends: ['eslint:recommended', 'google'],
+    rules: {
+        quotes: ['error', 'double'],
+    },
+    arrowParens: 'avoid',
+    bracketSameLine: true,
+    bracketSpacing: false,
+    singleQuote: true,
+    trailingComma: 'all',
+    arrowParens: 'always',
+    bracketSameLine: false,
+    bracketSpacing: true,
+    embeddedLanguageFormatting: 'auto',
+    htmlWhitespaceSensitivity: 'css',
+    insertPragma: false,
+    jsxSingleQuote: false,
+    printWidth: 80,
+    proseWrap: 'preserve',
+    quoteProps: 'as-needed',
+    requirePragma: false,
+    semi: true,
+    singleQuote: true,
+    tabWidth: 4,
+    trailingComma: 'all',
+    useTabs: false,
+    vueIndentScriptAndStyle: false,
+    // 127.0.0.1:4000
 };
