@@ -52,7 +52,7 @@ const userReducer = createSlice({
         },
         USER_LOGIN_FAIL: (state, action) => {
             const { error } = action.payload;
-            console.log('Failed');
+
             return {
                 ...state,
                 loginData: {

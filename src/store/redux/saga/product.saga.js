@@ -12,13 +12,14 @@ import {
 
 function* createProductSaga(action) {
     try {
-        const { cart, callback } = action.payload;
+        const { cart, callback, limit, page } = action.payload;
         yield call(
             axios.post,
             'http://127.0.0.1:5001/internapp-c1083/us-central1/app/api/products',
             cart,
+            { param: { _limit: limit, _page: page } },
         );
-        console.log(cart);
+        console.log();
         yield put({ type: CREATE_PRODUCT_SUCCESS });
         yield callback.goToList();
     } catch (e) {

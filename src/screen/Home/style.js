@@ -72,6 +72,7 @@ export const styles = StyleSheet.create({
     textButton: {
         fontSize: 20,
         textAlign: 'center',
+        width: '100%',
     },
 
     //Button Checkout

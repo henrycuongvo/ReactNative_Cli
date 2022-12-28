@@ -65,117 +65,88 @@ export default function Home() {
                         <View style={styles.rowIng}>
                             <Text style={styles.label}> Salad</Text>
                             <View style={styles.buttonWrapper}>
-                                <TouchableOpacity style={styles.buttonCount}>
-                                    <Text
-                                        style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(decrement('salad'))
-                                        }
-                                        disabled
-                                    >
-                                        -
-                                    </Text>
+                                <TouchableOpacity
+                                    style={styles.buttonCount}
+                                    onPress={() => dispatch(decrement('salad'))}
+                                >
+                                    <Text style={styles.textButton}>-</Text>
                                 </TouchableOpacity>
                                 <Text valu style={styles.countShow}>
                                     {getCart.salad}
                                 </Text>
-                                <View style={styles.buttonCount}>
-                                    <Text
-                                        style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(increment('salad'))
-                                        }
-                                    >
-                                        +
-                                    </Text>
-                                </View>
+                                <TouchableOpacity
+                                    onPress={() => dispatch(increment('salad'))}
+                                    style={styles.buttonCount}
+                                >
+                                    <Text style={styles.textButton}>+</Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                         {/* BACON */}
                         <View style={styles.rowIng}>
                             <Text style={styles.label}> Bacon</Text>
                             <View style={styles.buttonWrapper}>
-                                <View style={styles.buttonCount}>
-                                    <Text
-                                        style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(decrement('bacon'))
-                                        }
-                                    >
-                                        -
-                                    </Text>
-                                </View>
+                                <TouchableOpacity
+                                    style={styles.buttonCount}
+                                    onPress={() => dispatch(decrement('bacon'))}
+                                >
+                                    <Text style={styles.textButton}>-</Text>
+                                </TouchableOpacity>
                                 <Text style={styles.countShow}>
                                     {getCart.bacon}
                                 </Text>
-                                <View style={styles.buttonCount}>
-                                    <Text
-                                        style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(increment('bacon'))
-                                        }
-                                    >
-                                        +
-                                    </Text>
-                                </View>
+                                <TouchableOpacity
+                                    style={styles.buttonCount}
+                                    onPress={() => dispatch(increment('bacon'))}
+                                >
+                                    <Text style={styles.textButton}>+</Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                         {/* CHEESE */}
                         <View style={styles.rowIng}>
                             <Text style={styles.label}> Cheese</Text>
                             <View style={styles.buttonWrapper}>
-                                <View style={styles.buttonCount}>
-                                    <Text
-                                        style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(decrement('cheese'))
-                                        }
-                                    >
-                                        -
-                                    </Text>
-                                </View>
+                                <TouchableOpacity
+                                    style={styles.buttonCount}
+                                    onPress={() =>
+                                        dispatch(decrement('cheese'))
+                                    }
+                                >
+                                    <Text style={styles.textButton}>-</Text>
+                                </TouchableOpacity>
                                 <Text style={styles.countShow}>
                                     {getCart.cheese}
                                 </Text>
-                                <View style={styles.buttonCount}>
-                                    <Text
-                                        style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(increment('cheese'))
-                                        }
-                                    >
-                                        +
-                                    </Text>
-                                </View>
+                                <TouchableOpacity
+                                    style={styles.buttonCount}
+                                    onPress={() =>
+                                        dispatch(increment('cheese'))
+                                    }
+                                >
+                                    <Text style={styles.textButton}>+</Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                         {/* MEAT */}
                         <View style={styles.rowIng}>
                             <Text style={styles.label}> Meat</Text>
                             <View style={styles.buttonWrapper}>
-                                <View style={styles.buttonCount}>
-                                    <Text
-                                        style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(decrement('meat'))
-                                        }
-                                    >
-                                        -
-                                    </Text>
-                                </View>
+                                <TouchableOpacity
+                                    style={styles.buttonCount}
+                                    onPress={() => dispatch(decrement('meat'))}
+                                >
+                                    <Text style={styles.textButton}>-</Text>
+                                </TouchableOpacity>
                                 <Text style={styles.countShow}>
                                     {getCart.meat}
                                 </Text>
-                                <View style={styles.buttonCount}>
-                                    <Text
-                                        style={styles.textButton}
-                                        onPress={() =>
-                                            dispatch(increment('meat'))
-                                        }
-                                    >
-                                        +
-                                    </Text>
-                                </View>
+                                <TouchableOpacity
+                                    style={styles.buttonCount}
+                                    onPress={() => dispatch(increment('meat'))}
+                                >
+                                    <Text style={styles.textButton}>+</Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </View>

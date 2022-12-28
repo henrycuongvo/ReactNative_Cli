@@ -19,6 +19,7 @@ const db = admin.firestore();
 app.get('/', (req, res) => {
     return res.status(200).send('Hai there');
 });
+
 // create
 
 // Sign In
@@ -110,7 +111,6 @@ app.get('/api/products', (req, res) => {
                 });
                 return response;
             });
-            console.log(ress, 'ress');
             return res.status(200).json({ status: 'Success', data: response });
         } catch (error) {
             console.log(error);

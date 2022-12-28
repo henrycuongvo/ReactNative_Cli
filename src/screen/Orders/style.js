@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     scrollView: {
         marginHorizontal: 10,
         marginTop: 10,
+        paddingHorizontal: 10,
     },
     table: {
         width: '100%',
@@ -18,6 +19,7 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         paddingHorizontal: 10,
         marginTop: 10,
+        paddingVertical: 5,
     },
     ingredients: {
         flexDirection: 'column',
@@ -31,5 +33,9 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 30,
+    },
+    loader: {
+        marginTop: 10,
+        alignItems: 'center',
     },
 });
