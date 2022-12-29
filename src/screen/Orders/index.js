@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     ActivityIndicator,
     FlatList,
@@ -6,14 +6,20 @@ import {
     Text,
     View,
 } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import StatusBar from '../../components/StatusBar';
 import { styles } from './style';
 
+import { GET_PRODUCT_LIST_REQUEST } from '../../store/redux/reducers/product.reducer';
+
 export default function Orders() {
+    const dispatch = useDispatch();
     //GET Data from store
     const cart = useSelector((state) => state.products.productList.data);
     const data = cart;
+    useEffect(() => {
+        dispatch(GET_PRODUCT_LIST_REQUEST());
+    }, [dispatch]);
 
     //Handle Loading Data
     const [isLoading, setisLoading] = useState(false);
@@ -63,9 +69,11 @@ export default function Orders() {
             <FlatList
                 style={styles.scrollView}
                 data={data}
+                keyExtractor={(item) => item}
                 renderItem={renderItem}
                 initialNumToRender={5}
                 ListFooterComponent={renderFooter}
+                removeClippedSubviews={true}
 
                 // onEndReached={ }2
                 // onEndReachedThreshold = {}

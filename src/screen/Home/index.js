@@ -171,7 +171,7 @@ export default function Home() {
                                     },
                                 }),
                             );
-                            dispatch(GET_PRODUCT_LIST_REQUEST());
+                            // dispatch(GET_PRODUCT_LIST_REQUEST());
                         }}
                         title="Check out"
                     />

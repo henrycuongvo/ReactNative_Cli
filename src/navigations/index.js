@@ -8,6 +8,7 @@ import Home from '../screen/Home';
 import { store } from '../../store';
 import SignIn from '../screen/SignIn';
 import Orders from '../screen/Orders';
+import SignUp from '../screen/SignUp';
 enableScreens(true);
 
 const Stack = createNativeStackNavigator();
@@ -24,6 +25,7 @@ function MainNavigator() {
                     />
                     <Stack.Screen name="Home" component={Home} />
                     <Stack.Screen name="Orders" component={Orders} />
+                    <Stack.Screen name="SignUp" component={SignUp} />
                 </Stack.Navigator>
             </NavigationContainer>
         </Provider>

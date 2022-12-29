@@ -16,31 +16,15 @@ import { imgBackground, iconFacebook, iconGoogle } from '../../assets/images';
 import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import { USER_LOGIN_REQUEST } from '../../store/redux/reducers/user.reducer';
 
 export default function SignIn() {
     const navigation = useNavigation();
-    const dispatch = useDispatch();
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [confirmPassword, setConfirmPassword] = useState();
 
-    const [errorEmail, setErrorEmail] = useState();
-    const [showPassword, setShowPassword] = useState(false);
-    const handleSignIn = (value) => {
-        dispatch(
-            USER_LOGIN_REQUEST({
-                data: {
-                    email: email,
-                    password: password,
-                    usreId: email,
-                },
-                callback: {
-                    goToHome: () => navigation.navigate('Home'),
-                },
-            }),
-        );
-    };
+    const handleSignUp = () => {};
 
     return (
         <ImageBackground
@@ -65,62 +49,28 @@ export default function SignIn() {
                         <TextInput
                             style={styles.textInput}
                             placeholder="Password"
-                            secureTextEntry={showPassword ? false : true}
                             onChangeText={(text) => setPassword(text)}
                             value={password}
                         />
-                        <Text
-                            onPress={() =>
-                                setShowPassword(!showPassword ? true : false)
-                            }
-                            style={styles.eyePasswordWrapper}
-                        >
-                            <Image
-                                source={require('../../assets/images/view.png')}
-                                style={styles.eyePassword}
-                            />
-                        </Text>
                     </View>
-                    <Text
-                        style={{
-                            color: '#62B6B7',
-                            marginTop: 10,
-                            paddingHorizontal: 10,
-                        }}
-                        onPress={() => {
-                            alert('forgot');
-                        }}
-                    >
-                        Forgot Password?
-                    </Text>
-                    {/* Creact SignUp Button */}
+
+                    <View style={styles.password}>
+                        <TextInput
+                            style={styles.textInput}
+                            placeholder="Confirm Password"
+                            onChangeText={(text) => setConfirmPassword(text)}
+                            value={confirmPassword}
+                        />
+                    </View>
 
                     <TouchableOpacity
                         onPress={(value) => {
-                            handleSignIn();
+                            handleSignUp();
                         }}
                         style={styles.signUpWrapper}
                     >
-                        <Text>Sign In</Text>
-                        {/* <Link to={{ screen: "Register" }}> Register</Link> */}
+                        <Text>Sign Up</Text>
                     </TouchableOpacity>
-
-                    {/* Handle connect to register */}
-                    <View style={styles.creactAccount}>
-                        <Text>Don't have an account?</Text>
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('SignUp')}
-                        >
-                            <Text
-                                style={{
-                                    color: '#62B6B7',
-                                    marginRight: 10,
-                                }}
-                            >
-                                Create account
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
 
                     {/* Login by connect from  icon */}
                     <View style={styles.iconWrapper}>
