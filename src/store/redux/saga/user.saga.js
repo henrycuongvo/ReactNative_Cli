@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 // import { notification } from 'antd';
 import axios from 'axios';
 import {
@@ -42,13 +42,8 @@ function* loginSaga(action) {
             yield callback.goToHome();
         }
     } catch (e) {
-        console.log('Login failed');
-        // yield put({
-        //     type: USER_LOGIN_FAIL,
-        //     payload: {
-        //         error: 'Email or Password not correct',
-        //     },
-        // });
+        console.log('failed');
+
         Alert.alert('', 'Email or Password not correct');
     }
 }

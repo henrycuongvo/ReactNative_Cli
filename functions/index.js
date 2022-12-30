@@ -1,3 +1,11 @@
+// const {
+//     collection,
+//     query,
+//     orderBy,
+//     startAfter,
+//     limit,
+//     getDocs,
+// } = require('firebase/firestore');
 const functions = require('firebase-functions');
 
 const admin = require('firebase-admin');
@@ -98,20 +106,23 @@ app.get('/api/products', (req, res) => {
         try {
             let query = db.collection('products');
             let response = [];
+
             const ress = await query.get().then((data) => {
                 let docs = data.docs; // query results
                 docs.map((doc) => {
-                    const { ...rest } = doc.data().cart;
+                    const rest = doc.data().cart;
+                    const getId = doc.data().id;
                     const selectedData = {
                         cart: {
                             ...rest,
                         },
+                        id: getId,
                     };
                     response.push(selectedData);
                 });
                 return response;
             });
-            return res.status(200).json({ status: 'Success', data: response });
+            return res.status(200).json({ status: 'Success', data: ress });
         } catch (error) {
             console.log(error);
             res.status(500).send({ status: 'Failed', msg: error });
@@ -151,35 +162,35 @@ app.get('/api/userdetails', (req, res) => {
         }
     })();
 });
-// get
-// app.get('/api/products/:id', (req, res) => {
-//     (async () => {
-//         try {
-//             let query = db.collection('products');
-//             let response = [];
+// get products ID
+app.get('/api/products/:id', (req, res) => {
+    (async () => {
+        try {
+            let query = db.collection('products');
+            let response = [];
 
-//             await query.get().then((data) => {
-//                 let docs = data.docs; // query results
+            await query.get().then((data) => {
+                let docs = data.docs; // query results
 
-//                 docs.map((doc) => {
-//                     const selectedData = {
-//                         name: doc.data().name,
-//                         mobile: doc.data().mobile,
-//                         address: doc.data().address,
-//                     };
+                docs.map((doc) => {
+                    const selectedData = {
+                        name: doc.data().name,
+                        mobile: doc.data().mobile,
+                        address: doc.data().address,
+                    };
 
-//                     response.push(selectedData);
-//                 });
-//                 return response;
-//             });
+                    response.push(selectedData);
+                });
+                return response;
+            });
 
-//             return res.status(200).send({ status: 'Success', data: response });
-//         } catch (error) {
-//             console.log(error);
-//             res.status(500).send({ status: 'Failed', msg: error });
-//         }
-//     })();
-// });
+            return res.status(200).send({ status: 'Success', data: response });
+        } catch (error) {
+            console.log(error);
+            res.status(500).send({ status: 'Failed', msg: error });
+        }
+    })();
+});
 
 // update
 // put

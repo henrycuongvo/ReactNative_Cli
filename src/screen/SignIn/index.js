@@ -11,12 +11,13 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { imgBackground, iconFacebook, iconGoogle } from '../../assets/images';
+import { firebase } from '../../firebase-config';
 
 import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { USER_LOGIN_REQUEST } from '../../store/redux/reducers/user.reducer';
+import { iconFacebook, iconGoogle, imgBackground } from '../../assets/images';
 
 export default function SignIn() {
     const navigation = useNavigation();
@@ -27,7 +28,16 @@ export default function SignIn() {
 
     const [errorEmail, setErrorEmail] = useState();
     const [showPassword, setShowPassword] = useState(false);
-    const handleSignIn = (value) => {
+
+    // eslint-disable-next-line no-undef
+    // loginUser = async (email, password) => {
+    //     try {
+    //         await firebase.auth().signInWithEmailAndPassword(email, password);
+    //     } catch (error) {
+    //         Alert.alert(error.message);
+    //     }
+    // };
+    const handleSignIn = () => {
         dispatch(
             USER_LOGIN_REQUEST({
                 data: {

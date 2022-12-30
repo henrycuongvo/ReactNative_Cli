@@ -51,6 +51,7 @@ const productReducer = createSlice({
         },
 
         CREATE_PRODUCT_REQUEST: (state, action) => {
+            console.log('reducerCreate');
             return {
                 ...state,
                 createProductData: {

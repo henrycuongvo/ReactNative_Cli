@@ -17,7 +17,7 @@ import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 
-export default function SignIn() {
+export default function SignUp() {
     const navigation = useNavigation();
 
     const [email, setEmail] = useState();
@@ -49,6 +49,7 @@ export default function SignIn() {
                         <TextInput
                             style={styles.textInput}
                             placeholder="Password"
+                            secureTextEntry={true}
                             onChangeText={(text) => setPassword(text)}
                             value={password}
                         />
@@ -58,6 +59,7 @@ export default function SignIn() {
                         <TextInput
                             style={styles.textInput}
                             placeholder="Confirm Password"
+                            secureTextEntry={true}
                             onChangeText={(text) => setConfirmPassword(text)}
                             value={confirmPassword}
                         />

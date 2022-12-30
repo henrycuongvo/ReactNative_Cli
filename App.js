@@ -8,6 +8,7 @@
 
 import React from 'react';
 import type { Node } from 'react';
+<script src="http://192.168.88.217:8097"></script>;
 
 import SignIn from './src/screen/SignIn';
 import { styles } from './App.style';

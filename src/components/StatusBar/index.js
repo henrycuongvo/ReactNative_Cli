@@ -1,4 +1,4 @@
-import { View, Text, Image, Pressable } from 'react-native';
+import { View, Text, Image, Pressable, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
@@ -10,7 +10,9 @@ export default function StatusBar({ title }) {
     const dispatch = useDispatch();
     return (
         <View style={styles.container}>
-            <Text style={styles.title}> {title} </Text>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Text style={styles.title}>{title}</Text>
+            </TouchableOpacity>
             <Pressable
                 delayLongPress={2000}
                 onLongPress={() => {
