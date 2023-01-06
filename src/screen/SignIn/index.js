@@ -10,14 +10,14 @@ import {
     Alert,
     TouchableOpacity,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { firebase } from '../../firebase-config';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { USER_LOGIN_REQUEST } from '../../store/redux/reducers/user.reducer';
 import { iconFacebook, iconGoogle, imgBackground } from '../../assets/images';
+import { AuthContext } from '../../context/AuthContext';
 
 export default function SignIn() {
     const navigation = useNavigation();
@@ -25,6 +25,8 @@ export default function SignIn() {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+
+    const signIn = useContext(AuthContext);
 
     const [errorEmail, setErrorEmail] = useState();
     const [showPassword, setShowPassword] = useState(false);
@@ -70,7 +72,6 @@ export default function SignIn() {
                             value={email}
                         />
                     </View>
-                    {/* <Text style={{ color: 'red', fontSize: 12 }}> {errorEmail}</Text> */}
                     <View style={styles.password}>
                         <TextInput
                             style={styles.textInput}
@@ -108,11 +109,11 @@ export default function SignIn() {
                     <TouchableOpacity
                         onPress={(value) => {
                             handleSignIn();
+                            // signIn();
                         }}
                         style={styles.signUpWrapper}
                     >
                         <Text>Sign In</Text>
-                        {/* <Link to={{ screen: "Register" }}> Register</Link> */}
                     </TouchableOpacity>
 
                     {/* Handle connect to register */}
@@ -143,7 +144,9 @@ export default function SignIn() {
                                 style={{ width: 40, height: 40 }}
                             />
                         </Text>
-                        <Text onPress={() => alert('iconGG')}>
+                        <Text
+                            onPress={() => navigation.navigate('Geolocation')}
+                        >
                             <Image
                                 source={iconGoogle}
                                 style={{ width: 40, height: 40 }}

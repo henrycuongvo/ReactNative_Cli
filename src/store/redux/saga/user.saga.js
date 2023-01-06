@@ -13,8 +13,6 @@ import {
     isValidatePassword,
 } from '../../../utilies/Validation';
 
-import { AsyncStorage } from 'react-native';
-
 function* logOutSaga(action) {}
 function* loginSaga(action) {
     try {
@@ -43,7 +41,6 @@ function* loginSaga(action) {
         }
     } catch (e) {
         console.log('failed');
-
         Alert.alert('', 'Email or Password not correct');
     }
 }

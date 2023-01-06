@@ -22,9 +22,18 @@ export default function Orders() {
     useEffect(() => {
         dispatch(GET_PRODUCT_LIST_REQUEST());
     }, [dispatch]);
+
+    function limit(c) {
+        return this.filter((x, i) => {
+            if (i <= c - 1) {
+                return true;
+            }
+        });
+    }
     //GET Data from store
     const cart = useSelector((state) => state.products.productList.data);
     const data = cart;
+    console.log('LIMIT', limit);
     //Handle Loading Data
     const [isLoading, setisLoading] = useState(false);
     const [pageCurrent, setpageCurrent] = useState(1);
@@ -47,8 +56,8 @@ export default function Orders() {
         });
 
         return (
-            <View key={item.id} style={styles.table}>
-                <View style={styles.ingredients}>
+            <View style={styles.table}>
+                <View key={item.id} style={styles.ingredients}>
                     {prireFilter?.map((name, index) => {
                         return (
                             <>

@@ -34,6 +34,10 @@ app.get('/', (req, res) => {
 //SignIn__Post
 app.post('/api/signin', (req, res) => {
     (async () => {
+        // const idTokenResult = await firebase
+        //     .auth()
+        //     .currentUser.getIdTokenResult();
+        // console.log('User JWT: ', idTokenResult.token);
         try {
             await db
                 .collection('userinfo')
@@ -166,23 +170,9 @@ app.get('/api/userdetails', (req, res) => {
 app.get('/api/products/:id', (req, res) => {
     (async () => {
         try {
-            let query = db.collection('products');
-            let response = [];
-
-            await query.get().then((data) => {
-                let docs = data.docs; // query results
-
-                docs.map((doc) => {
-                    const selectedData = {
-                        name: doc.data().name,
-                        mobile: doc.data().mobile,
-                        address: doc.data().address,
-                    };
-
-                    response.push(selectedData);
-                });
-                return response;
-            });
+            const reqDoc = db.collection('products').doc(req.params.id);
+            let productDetail = await reqDoc.get();
+            let response = productDetail.data();
 
             return res.status(200).send({ status: 'Success', data: response });
         } catch (error) {
@@ -213,7 +203,6 @@ app.put('/api/update/:id', (req, res) => {
     })();
 });
 
-// delete
 // delete
 app.delete('/api/delete/:id', (req, res) => {
     (async () => {

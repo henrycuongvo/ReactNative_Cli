@@ -30,7 +30,7 @@ target 'ReactNative' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-
+  pod 'GoogleMaps' #ADD THIS LINE TO YOUR CODE IF YOU WANT GOOGLEMAPS IN IOS
   target 'ReactNativeTests' do
     inherit! :complete
     # Pods for testing
@@ -45,4 +45,5 @@ target 'ReactNative' do
     )
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
+  
 end
