@@ -28,7 +28,7 @@ export default function GoogleMaps() {
                     console.log(data, details);
                 }}
                 query={{
-                    key: 'YOUR API KEY',
+                    key: 'AIzaSyA5hjO8LOECB2dkw7SxxkKwVSPF9BWhVUg',
                     language: 'en',
                 }}
             />

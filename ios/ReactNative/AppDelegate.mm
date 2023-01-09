@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 
+#import <GoogleMaps/GoogleMaps.h>
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -29,15 +30,11 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 @end
 #endif
 
-//@import GoogleMaps;
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
- 
-  NSURL *jsCodeLocation;
-//  [GMSServices provideAPIKey:@"AIzaSyA5hjO8LOECB2dkw7SxxkKwVSPF9BWhVUg"];
-//  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+  [GMSServices provideAPIKey:@"AIzaSyA5hjO8LOECB2dkw7SxxkKwVSPF9BWhVUg"];
    [FIRApp configure];
   RCTAppSetupPrepareApp(application);
 
