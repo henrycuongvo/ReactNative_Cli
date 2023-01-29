@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, Button, SafeAreaView, Platform, Alert } from 'react-native';
+import {
+    View,
+    Button,
+    SafeAreaView,
+    Platform,
+    Alert,
+    Text,
+} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import { useNavigation } from '@react-navigation/native';
 export default function GeoLocationScreen() {
@@ -12,6 +19,7 @@ export default function GeoLocationScreen() {
         latitudeDelta: 0.0421,
         longitudeDelta: 0.0421,
     });
+    console.log(position);
     useEffect(() => {
         Geolocation.requestAuthorization();
 
@@ -35,6 +43,7 @@ export default function GeoLocationScreen() {
                     title="Request Authorization"
                     onPress={requestAuthorization}
                 />
+                <Text>Hello</Text>
             </View>
             <View>
                 <Button

@@ -10,9 +10,11 @@ import Orders from '../screen/Orders';
 import SignUp from '../screen/SignUp';
 import GeoLocationScreen from '../screen/Geolocation/GeolocationScreen';
 import SetLocation from '../screen/Geolocation/Setlocation';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 enableScreens(true);
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 function AuthStack() {
     const [isFirstLaunch, setisFirstLaunch] = useState(null);
@@ -40,28 +42,16 @@ function AuthStack() {
             initialRouteName={routeName}
             screenOptions={{ headerShown: false }}
         >
-            <Stack.Screen
-                // initialRouteName={routeName}
-                name="Sign In"
-                component={SignIn}
-            />
-            <Stack.Screen
-                name="Home"
-                component={Home}
-                // options={{
-                //     header: () => null,
-                // }}
-            />
+            <Stack.Screen>
+                <Tab.Navigator>
+                    <Tab.Screen name="SignIn" component={SignIn} />
+                    <Tab.Screen name="SignUp" component={SignUp} />
+                </Tab.Navigator>
+            </Stack.Screen>
+            <Stack.Screen name="Home" component={Home} />
             <Stack.Screen
                 name="Orders"
                 component={Orders}
-                // options={{
-                //     header: () => null,
-                // }}
-            />
-            <Stack.Screen
-                name="SignUp"
-                component={SignUp}
                 // options={{
                 //     header: () => null,
                 // }}

@@ -13,12 +13,6 @@ import type { Node } from 'react';
 }
 navigator.geolocation = require('@react-native-community/geolocation');
 
-import SignIn from './src/screen/SignIn';
-import { styles } from './App.style';
-import MainNavigator from './src/navigations';
-import Home from './src/screen/Home';
-import RootComponent from './src/screen';
-import StatusBar from './src/components/StatusBar';
 import Providers from './src/navigations';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's

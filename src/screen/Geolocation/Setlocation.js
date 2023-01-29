@@ -1,6 +1,6 @@
 import React from 'react';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { View, Dimensions, StyleSheet } from 'react-native';
+import { View, Dimensions, StyleSheet, Text, SafeAreaView } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 const { width, height } = Dimensions.get('window');
@@ -16,23 +16,26 @@ const INITIAL_POSITION = {
 
 export default function GoogleMaps() {
     return (
-        <View style={style.container}>
-            <MapView
-                provider={PROVIDER_GOOGLE}
-                initialRegion={INITIAL_POSITION}
-            />
-            <GooglePlacesAutocomplete
-                placeholder="Search"
-                onPress={(data, details = null) => {
-                    // 'details' is provided when fetchDetails = true
-                    console.log(data, details);
-                }}
-                query={{
-                    key: 'AIzaSyA5hjO8LOECB2dkw7SxxkKwVSPF9BWhVUg',
-                    language: 'en',
-                }}
-            />
-        </View>
+        <SafeAreaView style={style.container}>
+            <View>
+                <MapView
+                    provider={PROVIDER_GOOGLE}
+                    initialRegion={INITIAL_POSITION}
+                />
+                <GooglePlacesAutocomplete
+                    placeholder="Search"
+                    onPress={(data, details = null) => {
+                        // 'details' is provided when fetchDetails = true
+                        console.log(data, details);
+                    }}
+                    query={{
+                        key: 'AIzaSyA5hjO8LOECB2dkw7SxxkKwVSPF9BWhVUg',
+                        language: 'en',
+                    }}
+                />
+                <Text> Hello App</Text>
+            </View>
+        </SafeAreaView>
     );
 }
 export const style = StyleSheet.create({
@@ -40,6 +43,5 @@ export const style = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
     },
 });

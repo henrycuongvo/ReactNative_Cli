@@ -1,7 +1,6 @@
-import { initializeApp } from '@react-native-firebase/app';
+import { initializeApp } from 'firebase/app';
+// import { initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase/firestore';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
 
 const app = initializeApp();
 export const db = getFirestore(app);
